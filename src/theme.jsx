@@ -12,7 +12,8 @@ const theme = createTheme({
         },
         background: {
           default: '#F2E5BF', // Light Beige
-          paper: '#ffffff', // White for cards and papers
+          paper: '#ffffff', 
+          secondary:'#f8f4e3'// White for cards and papers
         },
         text: {
           primary: '#212121', // Dark grey for primary text
@@ -45,6 +46,23 @@ const theme = createTheme({
           fontWeight: 500,
         },
       },
+//       spacing:
+//
+//           Set spacing: 8 as the base unit (default for Material-UI). You can now calculate sizes like theme.spacing(30) (30 * 8px = 240px).
+//
+//       breakpoints:
+//
+//           Define breakpoints (xs, sm, md, lg, xl) for responsive design. These can be used to dynamically adjust card sizes based on screen width.
+      spacing: 8, // Base spacing unit for responsive sizing
+        breakpoints: {
+          values: {
+            xs: 0,
+            sm: 600,
+            md: 960,
+            lg: 1280,
+            xl: 1920,
+          },
+        },
       components: {
         MuiButton: {
           styleOverrides: {
