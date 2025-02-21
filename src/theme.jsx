@@ -25,7 +25,7 @@ const theme = createTheme({
         },
       },
       typography: {
-        fontFamily: 'Roboto, sans-serif',
+        fontFamily: 'Tektur Condensed,Roboto, sans-serif',
         h1: {
           fontSize: '2.5rem',
           fontWeight: 700,
@@ -46,13 +46,7 @@ const theme = createTheme({
           fontWeight: 500,
         },
       },
-//       spacing:
-//
-//           Set spacing: 8 as the base unit (default for Material-UI). You can now calculate sizes like theme.spacing(30) (30 * 8px = 240px).
-//
-//       breakpoints:
-//
-//           Define breakpoints (xs, sm, md, lg, xl) for responsive design. These can be used to dynamically adjust card sizes based on screen width.
+
       spacing: 8, // Base spacing unit for responsive sizing
         breakpoints: {
           values: {
@@ -75,13 +69,15 @@ const theme = createTheme({
         MuiCard: {
           styleOverrides: {
             root: {
-              borderRadius: '4px', // Sharp corners for cards
+              borderRadius: '80px', // Sharp corners for cards
               boxShadow: 'none', // No shadow for a flat design
               border: '1px solid #e0e0e0', // Subtle border for separation
             },
           },
         },
-      },
-    });
+      }
+          });
+
+
 
     export default theme; 

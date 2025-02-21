@@ -11,6 +11,10 @@ import Login from "./pages/userAction/Login";
 import Logout from "./pages/userAction/Logout";
 import Register from "./pages/userAction/Register";
 
+//fonts
+import '/fonts/TekturCondensed-Medium.ttf';
+import '/fonts/TekturCondensed-Bold.ttf';
+
 const App = () => {
   return (
         <BrowserRouter>

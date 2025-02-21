@@ -5,6 +5,8 @@ import { Button, Card, CardContent, Container, Grid, Typography } from "@mui/mat
 import { useNavigate } from 'react-router-dom';
 import graphic from "../../assets/student-banner.svg";
 import React from "react";
+import '../../index.css';
+
 
 
 const Welcome = () => {
@@ -15,34 +17,38 @@ const Welcome = () => {
     }
 
   return (
-    <Container>
+    <Container sx={{ position: "relative", overflow: "hidden", minHeight: "100vh"}}>
+    {/* Graphic Section */}
+
+                   <img
+                     src={graphic}
+                     alt="Students at Computers"
+                     style={{
+                     position: "absolute",
+                     top: 0,
+                     left: 0,
+                     width: "100%",
+                     height: "100%",
+                     objectFit: "cover",
+                     opacity: 0.3, // Adjust the translucency
+                     zIndex: 0 // Place it behind other elements
+
+                     }}  />
+
     <Grid
     container
             spacing={4} // Uniform spacing between Grid items
             justifyContent="center"
             alignItems="center"
-            sx={{ minHeight: "100vh", textAlign: "center" }} >
+            sx={{ minHeight: "100vh", textAlign: "center", position: "relative" }} >
 
        {/* Welcome Header */}
      <Grid item xs={12}>
-      <Typography variant="h1" color="primary">
-        Welcome to the Study Helper App
+      <Typography className="app-header" variant="h1" color="primary" style={{fontFamily: 'Tektur Condensed', fontWeight: 700, fontStyle: 'normal'}}>
+        Welcome to KnerdKode
       </Typography>
      </Grid>
-        {/* Graphic Section */}
-             <Grid item xs={12} sm={8} md={6}>
-               <img
-                 src={graphic}
-                 alt="Students at Computers"
-                 style={{
-                   width: "100%",
-                   maxWidth: "600px",
-                   height: "auto",
-                   display: "block",
-                   margin: "0 auto",
-                 }}
-               />
-             </Grid>
+
 
      {/* Card with Description */}
      <Grid item xs={12} sm={8} md={6}>
@@ -55,8 +61,13 @@ const Welcome = () => {
         variant="h2"
         color="secondary"
         gutterBottom
-        sx={{ marginBottom: theme.spacing(2) }}>
-        Your ultimate companion for learning and mastering programming skills at your own pace.
+        sx={{ marginBottom: theme.spacing(2) }}
+        style={{
+                    fontFamily: 'Tektur Condensed',
+                    fontWeight: 500,
+                    fontStyle: 'normal'
+                  }}>
+        The ultimate companion for curious nerds seeking to expand their knowledge and master programming skills at their own pace.
       </Typography>
       <Button
         variant="contained"
