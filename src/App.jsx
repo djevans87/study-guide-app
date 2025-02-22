@@ -8,13 +8,15 @@ import {Route, BrowserRouter, Routes} from "react-router-dom";
 import Login from "./pages/userAction/Login";
 import Logout from "./pages/userAction/Logout";
 import Register from "./pages/userAction/Register";
-
+import store from "./state_management/store/store";
 //fonts
 import '/fonts/TekturCondensed-Medium.ttf';
 import '/fonts/TekturCondensed-Bold.ttf';
+import {Provider} from "react-redux";
 
 const App = () => {
     return (
+        <Provider store={store}>
         <BrowserRouter>
             <Routes>
                 <Route path="/" element={<Layout/>}>
@@ -27,6 +29,7 @@ const App = () => {
                 </Route>
             </Routes>
         </BrowserRouter>
+        </Provider>
 
     );
 };
