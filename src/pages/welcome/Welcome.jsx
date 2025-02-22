@@ -1,10 +1,8 @@
 import "react";
-import { useState } from "react";
 import theme from "../../theme";
-import { Button, Card, CardContent, Container, Grid, Typography } from "@mui/material";
+import {Button, Card, CardContent, Container, Grid2, Typography} from "@mui/material";
 import { useNavigate } from 'react-router-dom';
 import graphic from "../../assets/student-banner.svg";
-import React from "react";
 import '../../index.css';
 
 
@@ -35,7 +33,7 @@ const Welcome = () => {
 
                      }}  />
 
-    <Grid
+    <Grid2
     container
             spacing={4} // Uniform spacing between Grid items
             justifyContent="center"
@@ -43,15 +41,15 @@ const Welcome = () => {
             sx={{ minHeight: "100vh", textAlign: "center", position: "relative" }} >
 
        {/* Welcome Header */}
-     <Grid item xs={12}>
+     <Grid2 item xs={12}>
       <Typography className="app-header" variant="h1" color="primary" style={{fontFamily: 'Tektur Condensed', fontWeight: 700, fontStyle: 'normal'}}>
         Welcome to KnerdKode
       </Typography>
-     </Grid>
+     </Grid2>
 
 
      {/* Card with Description */}
-     <Grid item xs={12} sm={8} md={6}>
+     <Grid2 item xs={12} sm={8} md={6}>
       <Card
         sx= {{ backgroundColor: theme.palette.background.secondary,
          padding: theme.spacing(4),
@@ -78,8 +76,8 @@ const Welcome = () => {
       </Button>
       </CardContent>
       </Card>
-    </Grid>
-    </Grid>
+    </Grid2>
+    </Grid2>
     </Container>
   );
 };
