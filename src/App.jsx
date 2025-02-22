@@ -3,9 +3,8 @@ import Layout from "./components/common/Layout";
 import Welcome from "./pages/welcome/Welcome";
 import Dashboard from "./pages/dashboard/Dashboard";
 import Footer from "./components/common/Footer";
-import NavBar from "./components/common/NavBar";
 import NoPage from "./components/common/NoPage";
-import React from "react";
+import "react";
 import { Route, BrowserRouter, Routes } from "react-router-dom";
 import Login from "./pages/userAction/Login";
 import Logout from "./pages/userAction/Logout";
@@ -28,6 +27,7 @@ const App = () => {
             <Route path="*" element={<NoPage />} />
             </Route>
           </Routes>
+            <Footer />
          </BrowserRouter>
 
   );

@@ -1,8 +1,10 @@
-import React from 'react'
+import 'react'
 
  const Footer = () => {
   return (
-    <div>Footer</div>
+      <footer>
+       <p>&copy; 2025 KnerdKode Study Guide Helper</p>
+      </footer>
   )
 }
 
