@@ -12,7 +12,8 @@ const theme = createTheme({
         },
         background: {
           default: '#F2E5BF', // Light Beige
-          paper: '#ffffff', // White for cards and papers
+          paper: '#ffffff', 
+          secondary:'#f8f4e3'// White for cards and papers
         },
         text: {
           primary: '#212121', // Dark grey for primary text
@@ -24,7 +25,7 @@ const theme = createTheme({
         },
       },
       typography: {
-        fontFamily: 'Roboto, sans-serif',
+        fontFamily: 'Tektur Condensed,Roboto, sans-serif',
         h1: {
           fontSize: '2.5rem',
           fontWeight: 700,
@@ -45,6 +46,17 @@ const theme = createTheme({
           fontWeight: 500,
         },
       },
+
+      spacing: 8, // Base spacing unit for responsive sizing
+        breakpoints: {
+          values: {
+            xs: 0,
+            sm: 600,
+            md: 960,
+            lg: 1280,
+            xl: 1920,
+          },
+        },
       components: {
         MuiButton: {
           styleOverrides: {
@@ -57,13 +69,15 @@ const theme = createTheme({
         MuiCard: {
           styleOverrides: {
             root: {
-              borderRadius: '4px', // Sharp corners for cards
+              borderRadius: '80px', // Sharp corners for cards
               boxShadow: 'none', // No shadow for a flat design
               border: '1px solid #e0e0e0', // Subtle border for separation
             },
           },
         },
-      },
-    });
+      }
+          });
+
+
 
     export default theme; 
