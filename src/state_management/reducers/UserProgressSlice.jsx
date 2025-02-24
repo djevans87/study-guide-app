@@ -19,10 +19,3 @@ const userProgressSlice = createSlice({
 
 export const {updateProgress} = userProgressSlice.actions;
 export default userProgressSlice.reducer;
-export const updateProgressAction = (language, progress) => {
-    return {
-        type: 'UPDATE_PROGRESS',
-        language,
-        progress,
-    };
-};
