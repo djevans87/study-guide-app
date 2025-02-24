@@ -27,7 +27,7 @@ import logout from "../../pages/userAction/Logout.jsx";
 const NavBar = () => {
     const navigate = useNavigate();
     const [drawerOpen, setDrawerOpen] = useState(false);
-    const {isLoggedIn, username} = useSelector((state) =>
+    const {isLoggedIn, firstName} = useSelector((state) =>
         state.currentUser);
     const dispatch = useDispatch();
 
@@ -75,7 +75,7 @@ const NavBar = () => {
                     </Typography>
                     {isLoggedIn ? (
                         <Typography variant="h6" color="inherit">
-                            Welcome, {username}!
+                            Welcome, {firstName}!
                         </Typography>
                     ) : (
                         <Button color="inherit" onClick={handleLogin}>

@@ -13,9 +13,11 @@ const currentUserSlice = createSlice({
     },
     reducers: {
         login: (state, action) => {
-            const { username, password } = action.payload;
+            const { username, password, firstName, lastName } = action.payload;
             state.username = username;
             state.password = password;
+            state.firstName = firstName;
+            state.lastName = lastName;
             state.isLoggedIn = true;
         },
         logout: (state) => {

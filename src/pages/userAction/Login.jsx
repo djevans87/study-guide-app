@@ -2,7 +2,7 @@ import 'react'
 import {useState} from "react";
 import {Link, useNavigate} from "react-router-dom";
 import {useDispatch} from "react-redux";
-import {login} from "../../state_management/reducers/currentUserSlice.jsx";
+import {login} from "../../state_management/reducers/CurrentUserSlice.jsx";
 
 const Login = () => {
   const [username, setUsername] = useState('');

@@ -8,15 +8,20 @@ import {Route, BrowserRouter, Routes} from "react-router-dom";
 import Login from "./pages/userAction/Login";
 import Logout from "./pages/userAction/Logout";
 import Register from "./pages/userAction/Register";
-import store from "./state_management/store/store";
+import Documentation from "./pages/dashboard/Documentation.jsx";
+import MultipleChoice from "./pages/dashboard/MultipleChoice.jsx";
+import CodingChallenge from "./pages/dashboard/CodingChallenge.jsx";
+import NoteCard from "./pages/dashboard/NoteCard.jsx";
+import GoalsProgress from "./pages/dashboard/GoalsProgress.jsx";
+
 //fonts
 import '/fonts/TekturCondensed-Medium.ttf';
 import '/fonts/TekturCondensed-Bold.ttf';
-import {Provider} from "react-redux";
+
 
 const App = () => {
     return (
-        <Provider store={store}>
+
         <BrowserRouter>
             <Routes>
                 <Route path="/" element={<Layout/>}>
@@ -25,11 +30,16 @@ const App = () => {
                     <Route path="/login" element={<Login/>}/>
                     <Route path="/logout" element={<Logout/>}/>
                     <Route path="/register" element={<Register/>}/>
+                    <Route path="/documentation" element={<Documentation/>}/>
+                    <Route path="/multiple-choice" element={<MultipleChoice/>}/>
+                    <Route path="/coding-challenge" element={<CodingChallenge/>}/>
+                    <Route path="/note-card" element={<NoteCard/>}/>
+                    <Route path="/goals-progress" element={<GoalsProgress/>}/>
                     <Route path="*" element={<NoPage/>}/>
                 </Route>
             </Routes>
         </BrowserRouter>
-        </Provider>
+
 
     );
 };

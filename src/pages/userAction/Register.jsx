@@ -12,7 +12,7 @@ import {
 import theme from "../../theme";
 import {useDispatch} from "react-redux";
 import {useState} from "react";
-import {register} from "../../state_management/reducers/currentUserSlice.jsx";
+import {register} from "../../state_management/reducers/CurrentUserSlice.jsx";
 
 const Register = () => {
     const [firstName, setFirstName] = useState('');

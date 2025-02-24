@@ -1,10 +1,13 @@
-import {configureStore} from "@reduxjs/toolkit";
-import currentUserSlice from "../reducers/currentUserSlice";
+import {combineReducers, configureStore} from "@reduxjs/toolkit";
+import currentUserReducer from "../reducers/CurrentUserSlice.jsx";
+import userProgressReducer from "../reducers/UserProgressSlice.jsx";
 
+const rootReducer = combineReducers({
+    userProgress: userProgressReducer,
+    currentUser: currentUserReducer,
+})
 const store = configureStore({
-    reducer: {
-        currentUser: currentUserSlice,
-    },
+    reducer: rootReducer
 });
 
 export default store;
