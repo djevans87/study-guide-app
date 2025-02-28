@@ -2,8 +2,6 @@ import "react";
 import {
     Grid2,
     Typography,
-    Card,
-    CardContent,
     TextField,
     Button,
     Paper,
@@ -13,6 +11,7 @@ import theme from "../../theme";
 import {useDispatch} from "react-redux";
 import {useState} from "react";
 import {register} from "../../state_management/reducers/CurrentUserSlice.jsx";
+import {readData, writeData}   from "../../dataService/dataService.jsx";
 
 const Register = () => {
     const [firstName, setFirstName] = useState('');
@@ -25,77 +24,24 @@ const Register = () => {
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        dispatch(register({firstName, lastName, email, phoneNumber, username, password}));
+        const userData = {
+            firstName,
+            lastName,
+            email,
+            phoneNumber,
+            username,
+            password,
+        };
+        const data = readData();
+        if (data) {
+            data.users.push(userData);
+            writeData(data);
+        }
+        dispatch(register(userData));
     };
 
     return (
         <Box sx={{padding: "100px", backgroundColor: "#F2E5BF", minHeight: "100vh"}}>
-            {/* Header */}
-            <Typography variant="h3" align="center" gutterBottom>
-                Join Our Community
-            </Typography>
-
-            {/* How It Works Section */}
-            <Typography variant="h4" align="center" gutterBottom>
-                How It Works
-            </Typography>
-            <Grid2
-                container
-                spacing={4}
-                justifyContent="center"
-                sx={{
-                    marginBottom: "40px",
-                    padding: {xs: 2, sm: 4, md: 6, lg: 8},
-                }}>
-                {[
-                    {
-                        title: "Sign Up",
-                        description: "Join our community by creating a free account.",
-                    },
-                    {
-                        title: "Choose a Topic",
-                        description: "Choose from a wide range of programming topics to start learning.",
-                    },
-                    {
-                        title: "Learn and Practice",
-                        description: "Dive into lessons and practice with real-world exercises.",
-                    },
-                    {
-                        title: "Track Your Progress",
-                        description: "Keep track of your achievements and continue improving.",
-                    },
-                ].map((step, index) => (
-                    <Grid2
-                        item xs={12} sm={6} md={3}
-                        key={index}
-                    >
-                        <Card
-                            sx={{
-                                maxWidth: 300,
-                                height: "100%",
-                                display: "flex",
-                                flexDirection: "column",
-                                justifyContent: "center",
-                                alignItems: "center",
-                                textAlign: "center",
-                                backgroundColor: theme.palette.background.secondary,
-                                transition: "backgroundColor 0.3s ease",
-                                "&:hover": {
-                                    backgroundColor: theme.palette.background.primary,
-                                    color: theme.palette.text.primary
-                                },
-                                color: theme.palette.text.secondary,
-                            }}>
-                            <CardContent>
-                                <Typography variant="h6" gutterBottom>
-                                    {step.title}
-                                </Typography>
-                                <Typography variant="body2">{step.description}</Typography>
-                            </CardContent>
-                        </Card>
-                    </Grid2>
-                ))}
-            </Grid2>
 
             {/* User Info Section */}
             <Typography variant="h4" align="center" gutterBottom>
