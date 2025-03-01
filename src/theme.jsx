@@ -12,7 +12,7 @@ const theme = createTheme({
         },
         background: {
           default: '#F2E5BF', // Light Beige
-          paper: '#ffffff', 
+          paper: '#ffffff',
           secondary:'#f8f4e3'// White for cards and papers
         },
         text: {
@@ -42,7 +42,7 @@ const theme = createTheme({
           lineHeight: 1.5,
         },
         button: {
-          textTransform: 'none', // No uppercase transformation for buttons
+          textTransform: 'none',
           fontWeight: 500,
         },
       },
@@ -61,7 +61,7 @@ const theme = createTheme({
         MuiButton: {
           styleOverrides: {
             root: {
-              borderRadius: '4px', // Sharp corners for a flat design
+              borderRadius: '40px', // Sharp corners for a flat design
               padding: '10px 20px',
             },
           },
