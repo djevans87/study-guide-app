@@ -1,17 +1,17 @@
 import "react";
+import './Register.css';
 import {
     Grid2,
     Typography,
     TextField,
     Button,
     Paper,
-    Box,
+    Box, Container,
 } from "@mui/material";
 import theme from "../../theme";
-import {useDispatch} from "react-redux";
 import {useState} from "react";
-import {register} from "../../state_management/reducers/CurrentUserSlice.jsx";
-import {readData, writeData}   from "../../dataService/dataService.jsx";
+import graphic from "../../assets/student-banner.svg";
+
 
 const Register = () => {
     const [firstName, setFirstName] = useState('');
@@ -20,44 +20,40 @@ const Register = () => {
     const [phoneNumber, setPhoneNumber] = useState('');
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
-    const dispatch = useDispatch();
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        const userData = {
-            firstName,
-            lastName,
-            email,
-            phoneNumber,
-            username,
-            password,
+      console.log('Form submitted:',{firstName, lastName, email,
+          phoneNumber, username, password});
         };
-        const data = readData();
-        if (data) {
-            data.users.push(userData);
-            writeData(data);
-        }
-        dispatch(register(userData));
-    };
+
 
     return (
-        <Box sx={{padding: "100px", backgroundColor: "#F2E5BF", minHeight: "100vh"}}>
+        <Container className="register-container"
+            // style={{
+            //     backgroundImage: `url(${graphic})`,
+            // }}
+            >
+            <Box className="register-box">
 
-            {/* User Info Section */}
-            <Typography variant="h4" align="center" gutterBottom>
+                {/* User Info Section */}
+                 <Typography className="register-header"
+                             color="secondary.contrastText"
+                             variant="h2"
+                             align="center"
+                             gutterBottom>
                 Register Now
             </Typography>
-            <Paper
+            <Paper className="register-paper"
                 elevation={3}
-                sx={{padding: "30px", maxWidth: "600px", margin: "0 auto"}}
                 style={{
                     backgroundColor: theme.palette.background.secondary, // Use secondary background
                     color: theme.palette.text.primary,
                 }}>
 
-                <Grid2 container spacing={3}>
-                    <Grid2 item xs={12} sm={6}>
-                        <TextField
+                <Grid2 className="register-grid" container spacing={3}>
+                    <Grid2 className="register-grid-item"  item xs={12} sm={6}>
+                        <TextField className="register-text-field"
                             label="First Name"
                             variant="outlined"
                             fullWidth
@@ -66,8 +62,8 @@ const Register = () => {
                             onChange={(e) => setFirstName(e.target.value)}
                         />
                     </Grid2>
-                    <Grid2 item xs={12} sm={6}>
-                        <TextField
+                    <Grid2 className="register-grid-item" item xs={12} sm={6}>
+                        <TextField className="register-text-field"
                             label="Last Name"
                             variant="outlined"
                             fullWidth
@@ -75,8 +71,8 @@ const Register = () => {
                             value={lastName}
                             onChange={(e) => setLastName(e.target.value)}/>
                     </Grid2>
-                    <Grid2 item xs={12}>
-                        <TextField
+                    <Grid2 className="register-grid-item" item xs={12}>
+                        <TextField className="register-text-field"
                             label="Email"
                             type="email"
                             variant="outlined"
@@ -85,8 +81,8 @@ const Register = () => {
                         value={email}
                         onChange={(e) => setEmail(e.target.value)}/>
                     </Grid2>
-                    <Grid2 item xs={12}>
-                        <TextField
+                    <Grid2 className="register-grid-item" item xs={12}>
+                        <TextField className="register-text-field"
                             label="Phone Number"
                             type="tel"
                             variant="outlined"
@@ -95,8 +91,8 @@ const Register = () => {
                         value={phoneNumber}
                         onChange={(e) => setPhoneNumber(e.target.value)}/>
                     </Grid2>
-                    <Grid2 item xs={12}>
-                        <TextField
+                    <Grid2 className="register-grid-item" item xs={12}>
+                        <TextField className="register-text-field"
                             label="Username"
                             variant="outlined"
                             fullWidth
@@ -105,8 +101,8 @@ const Register = () => {
                             onChange={(event) => setUsername(event.target.value)}
                         />
                     </Grid2>
-                    <Grid2 item xs={12}>
-                        <TextField
+                    <Grid2 className="register-grid-item" item xs={12}>
+                        <TextField className="register-text-field"
                             label="Password"
                             type="password"
                             variant="outlined"
@@ -116,8 +112,8 @@ const Register = () => {
                             onChange={(event) => setPassword(event.target.value)}
                         />
                     </Grid2>
-                    <Grid2 item xs={12}>
-                        <Button
+                    <Grid2 className="register-grid-item" item xs={12}>
+                        <Button className="register-button"
                             variant="contained"
                             color="primary"
                             fullWidth
@@ -130,7 +126,8 @@ const Register = () => {
                     </Grid2>
                 </Grid2>
             </Paper>
-        </Box>
+            </Box>
+        </Container>
     );
 };
 

@@ -8,39 +8,40 @@ import {Route, BrowserRouter, Routes} from "react-router-dom";
 import Login from "./pages/userAction/Login";
 import Logout from "./pages/userAction/Logout";
 import Register from "./pages/userAction/Register";
-import Documentation from "./pages/dashboard/Documentation.jsx";
-import MultipleChoice from "./pages/dashboard/MultipleChoice.jsx";
-import CodingChallenge from "./pages/dashboard/CodingChallenge.jsx";
-import NoteCard from "./pages/dashboard/NoteCard.jsx";
-import GoalsProgress from "./pages/dashboard/GoalsProgress.jsx";
+import Documentation from "./pages/dashboard/Documentation";
+import MultipleChoice from "./pages/dashboard/MultipleChoice";
+import CodingChallenge from "./pages/dashboard/CodingChallenge";
+import NoteCard from "./pages/dashboard/NoteCard";
+import GoalsProgress from "./pages/dashboard/GoalsProgress";
 
 //fonts
 import '/fonts/TekturCondensed-Medium.ttf';
 import '/fonts/TekturCondensed-Bold.ttf';
-
+import BackgroundWrapper from "./BackgroundWrapper";
 
 const App = () => {
     return (
-
         <BrowserRouter>
-            <Routes>
-                <Route path="/" element={<Layout/>}>
-                    <Route index element={<Welcome/>}/>
-                    <Route path="/dashboard" element={<Dashboard/>}/>
+                <Routes>
                     <Route path="/login" element={<Login/>}/>
                     <Route path="/logout" element={<Logout/>}/>
-                    <Route path="/register" element={<Register/>}/>
-                    <Route path="/documentation" element={<Documentation/>}/>
-                    <Route path="/multiple-choice" element={<MultipleChoice/>}/>
-                    <Route path="/coding-challenge" element={<CodingChallenge/>}/>
-                    <Route path="/note-card" element={<NoteCard/>}/>
-                    <Route path="/goals-progress" element={<GoalsProgress/>}/>
-                    <Route path="*" element={<NoPage/>}/>
-                </Route>
-            </Routes>
+                        <Route path="/" element={
+                            <BackgroundWrapper>
+                                <Layout/>
+                            </BackgroundWrapper>
+                        }>
+                            <Route index element={<Welcome/>}/>
+                            <Route path="/dashboard" element={<Dashboard/>}/>
+                            <Route path="/register" element={<Register/>}/>
+                            <Route path="/documentation" element={<Documentation/>}/>
+                            <Route path="/multiple-choice" element={<MultipleChoice/>}/>
+                            <Route path="/coding-challenge" element={<CodingChallenge/>}/>
+                            <Route path="/note-card" element={<NoteCard/>}/>
+                            <Route path="/goals-progress" element={<GoalsProgress/>}/>
+                            <Route path="*" element={<NoPage/>}/>
+                        </Route>
+                </Routes>
         </BrowserRouter>
-
-
     );
 };
 

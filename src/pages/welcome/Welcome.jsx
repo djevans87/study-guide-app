@@ -2,7 +2,6 @@ import "react";
 import theme from "../../theme";
 import {Button, Card, CardContent, Container, Grid2, Typography} from "@mui/material";
 import {useNavigate} from 'react-router-dom';
-import graphic from "../../assets/student-banner.svg";
 import './Welcome.css';
 import {WELCOME_PAGE_DESCRIPTION_CARDS} from "../../components/common/Constants.jsx";
 
@@ -15,7 +14,9 @@ const Welcome = () => {
 
     return (
         <Container className="welcome-page-container"
-                   style={{backgroundImage: `url(${graphic})`}}>
+                   // style={{backgroundImage: `url(${graphic})`,
+                   //    }}
+        >
             <Grid2 className="grid-container"
                    container
                    spacing={6}
@@ -25,7 +26,7 @@ const Welcome = () => {
                 <Grid2 className="grid-header" item xs={12}>
                     <Typography className="app-header"
                                 variant="h1"
-                                color="primary"
+                                color="primary.contrastText"
                     >
                         Welcome to KnerdKode
                     </Typography>

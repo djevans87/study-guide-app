@@ -3,6 +3,7 @@ import {useSelector} from "react-redux";
 import {useNavigate} from "react-router-dom";
 import {Box, Button, CardContent, Grid2, Typography} from "@mui/material";
 import theme from "../../theme.jsx";
+import {DASHBOARD_PAGE_DESCRIPTION_CARDS} from "../../components/common/Constants.jsx";
 
 const Dashboard = () => {
 
@@ -28,33 +29,7 @@ const Dashboard = () => {
                     marginBottom: "40px",
                     padding: {xs: 2, sm: 4, md: 6, lg: 8},
                 }}>
-                {[
-                    {
-                        title: "Documentation",
-                        description: "Explore a vast library of articles on various programming topics, including tutorials, guides, and best practices. Learn from industry experts and stay up-to-date with the latest trends and technologies.",
-                        path: "/documentation",
-                    },
-                    {
-                        title: "Multiple Choice Quizzes",
-                        description: "Test your knowledge and skills with our multiple choice quizzes, covering a wide range of programming topics. Identify areas for improvement and track your progress over time.",
-                        path: "/multiple-choice",
-                    },
-                    {
-                        title: "Coding Challenges",
-                        description: "Practice your coding skills with our interactive challenges, designed to simulate real-world scenarios. Develop problem-solving skills, learn new concepts, and improve your coding abilities.",
-                        path: "/coding-challenge",
-                    },
-                    {
-                        title: "Note Cards",
-                        description: "Create and review digital flashcards to help you memorize key concepts, terms, and formulas. Organize your notes, track your progress, and reinforce your learning with our note card system.",
-                        path: "/note-card",
-                    },
-                    {
-                        title: "Track Your Progress",
-                        description: "Set and track your personal goals, monitoring your progress along the way. Celebrate your achievements, stay motivated, and unlock your full potential as you work towards your objectives.",
-                        path: "/goals-progress",
-                    },
-                ].map((step, index) => (
+                {DASHBOARD_PAGE_DESCRIPTION_CARDS.map((step, index) => (
                     <Grid2
                         item xs={12} sm={6} md={3}
                         key={index}
@@ -82,7 +57,9 @@ const Dashboard = () => {
                                 <Typography variant="h6" gutterBottom>
                                     {step.title}
                                 </Typography>
-                                <Typography variant="body2">{step.description}</Typography>
+                                <Typography variant="body2">
+                                    {step.description}
+                                </Typography>
                             </CardContent>
                         </Button>
                     </Grid2>

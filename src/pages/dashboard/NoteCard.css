@@ -1,0 +1,121 @@
+.note-card-container {
+    position: relative;
+    overflow: hidden;
+    min-height: 100vh;
+    /*background-size: cover;*/
+    /*background-position: center;*/
+    /*background-repeat: no-repeat;*/
+    /*background-attachment: fixed;*/
+    width: 100%;
+}
+
+.note-card-header {
+    font-size: 4.5rem;
+    font-weight: 700;
+    margin-bottom: 10px;
+    padding-top: 1rem;
+    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+    -webkit-text-stroke: 2px black;
+}
+
+.note-form {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.note-input {
+    width: 70%;
+    padding: 10px;
+    border: 1px solid #e0e0e0;
+    border-radius: 5px;
+    font-size: 16px;
+    background-color: #ffffff;
+}
+
+.note-save-btn {
+    width: 20%;
+    padding: 10px;
+    background-color: #257180;
+    color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.note-save-btn:hover {
+    background-color: #1a5d7a;
+}
+
+.notes-grid {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.note-card {
+    background-color: #f8f4e3;
+    padding: 20px;
+    border: 1px solid black !important;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.note-content {
+    padding: 20px;
+}
+
+.note-text {
+    font-size: 18px;
+    font-weight: 400;
+    margin-bottom: 10px;
+    color: #212121;
+}
+
+.note-date {
+    font-size: 14px;
+    font-weight: 400;
+    margin-bottom: 10px;
+    color: #757575;
+}
+
+.note-actions {
+    display: flex;
+    gap: 10px;
+    justify-content: space-between;
+    padding: 20px;
+    border-top: 1px solid #e0e0e0;
+}
+
+.note-update-btn {
+    width: 100px;
+    padding: 10px;
+    background-color: #ffffff;
+    color: #257180;
+    border: 1px solid #e0e0e0;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.note-update-btn:hover {
+    background-color: #1a5d7a;
+    color: #ffffff;
+}
+
+.note-delete-btn {
+    width: 100px;
+    padding: 10px;
+    background-color: #ffffff;
+    color: #cb6040;
+    border: 1px solid #e0e0e0;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.note-delete-btn:hover {
+    background-color: #d32f2f;
+    color: #ffffff;
+}

@@ -7,9 +7,9 @@
     justify-content: center;
     align-items: center;
     text-align: center;
-    transition: backgroundColor 0.3s ease;
-    opacity: 1;
-    z-index: 1;
+    /* transition: backgroundColor 0.3s ease;
+     opacity: 1;
+     z-index: 1;*/
 }
 
 .app-description-card:hover {
@@ -67,9 +67,9 @@
     position: relative;
     overflow: hidden;
     min-height: 100vh;
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
+    /*background-size: cover;*/
+    /*background-position: center;*/
+    /*background-repeat: no-repeat;*/
+    /*background-attachment: fixed;*/
     width: 100%;
 }

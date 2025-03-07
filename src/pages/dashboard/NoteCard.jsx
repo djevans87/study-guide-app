@@ -1,7 +1,9 @@
 import "react";
-import {readData, writeData} from "../../dataService/dataService.jsx";
-import {useEffect, useState} from "react";
-import {useSelector} from "react-redux";
+import { readData, writeData } from "../../dataService/dataService.jsx";
+import { useEffect, useState } from "react";
+import { useSelector } from "react-redux";
+import { Grid2, Card, CardContent, Typography, Button, TextField, Container } from "@mui/material";
+import "./NoteCard.css";
 
 const NoteCard = () => {
     const [note, setNote] = useState('');
@@ -26,9 +28,7 @@ const NoteCard = () => {
     };
 
     const handleUpdate = (index) => {
-        const data = { noteCards: notes.map((
-            noteCard, i) => i ===
-            index ? { ...noteCard, note, lastUpdatedDate: new Date().toISOString().split('T')[0] } : noteCard) };
+        const data = { noteCards: notes.map((noteCard, i) => i === index ? { ...noteCard, note, lastUpdatedDate: new Date().toISOString().split('T')[0] } : noteCard) };
         writeData(currentUser.username, data);
         setNotes(data.noteCards);
         setNote('');
@@ -39,29 +39,60 @@ const NoteCard = () => {
         writeData(currentUser.username, data);
         setNotes(data.noteCards);
     };
-//todo make this a grid with cards
+
     return (
-        <div>
-            <h2>Notes</h2>
-            <input
-                type="text"
-                value={note}
-                onChange={(e) => setNote(e.target.value)}
-                placeholder="New note"
-            />
-            <button onClick={handleSave}>Save</button>
-            <ul>
+        <Container className="note-card-container"
+                   maxWidth="lg"
+                   // style={{backgroundImage: `url(${graphic})`,
+                   // }}
+            >
+            <Typography variant="h2"
+                        className="note-card-header"
+                        color="secondary.contrastText"
+                        gutterBottom
+            >
+                My Notes
+            </Typography>
+            <div className="note-form">
+                <TextField
+                    label="New note"
+                    value={note}
+                    onChange={(e) => setNote(e.target.value)}
+                    className="note-input"
+                />
+                <Button variant="contained" className="note-save-btn" onClick={handleSave}>
+                    Save
+                </Button>
+            </div>
+            <Grid2 container spacing={2} className="notes-Grid2">
                 {notes.map((noteCard, index) => (
-                    <li key={index}>
-                        <p>{noteCard.note}</p>
-                        <p>Created: {noteCard.createdDate}</p>
-                        <p>Last updated: {noteCard.lastUpdatedDate}</p>
-                        <button onClick={() => handleUpdate(index)}>Update</button>
-                        <button onClick={() => handleDelete(index)}>Delete</button>
-                    </li>
+                    <Grid2 item xs={12} sm={6} md={4} key={index}>
+                        <Card className="note-card">
+                            <CardContent className="note-content">
+                                <Typography variant="h5" className="note-text">
+                                    {noteCard.note}
+                                </Typography>
+                                <Typography variant="body2" color="text.secondary" className="note-date">
+                                    Created: {noteCard.createdDate}
+                                </Typography>
+                                <Typography variant="body2" color="text.secondary" className="note-date">
+                                    Last updated: {noteCard.lastUpdatedDate}
+                                </Typography>
+                            </CardContent>
+                            <div className="note-actions">
+                                <Button variant="outlined" className="note-update-btn" onClick={() => handleUpdate(index)}>
+                                    Update
+                                </Button>
+                                <Button variant="outlined" className="note-delete-btn" onClick={() => handleDelete(index)}>
+                                    Delete
+                                </Button>
+                            </div>
+                        </Card>
+                    </Grid2>
                 ))}
-            </ul>
-        </div>
-    )
-}
+            </Grid2>
+        </Container>
+    );
+};
+
 export default NoteCard;
